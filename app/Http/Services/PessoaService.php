@@ -26,7 +26,7 @@ class PessoaService
         $pessoaCacheData = json_encode($pessoa->toArray());
 
         Cache::set('pessoa.' . $pessoa['uuid'], $pessoaCacheData, now()->day);
-        Cache::set('pessoa.' . $pessoa['uuid'], $pessoaCacheData, now()->day);
+        Cache::set('pessoa.' . $pessoa['apelido'], $pessoaCacheData, now()->day);
 
         dispatch(function () use ($formatted) {
            Pessoa::query()->create($formatted);
